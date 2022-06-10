@@ -4,17 +4,19 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Search | fastpages</title>
+<title>Aws Instance Setting | fastpages</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="Search" />
+<meta property="og:title" content="Aws Instance Setting" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
-<meta property="og:description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
-<link rel="canonical" href="https://hafizahmadhassan.github.io/Data-Science-Blog/search/" />
-<meta property="og:url" content="https://hafizahmadhassan.github.io/Data-Science-Blog/search/" />
+<meta name="description" content="Documentation of Setting Up EC2 Instance" />
+<meta property="og:description" content="Documentation of Setting Up EC2 Instance" />
+<link rel="canonical" href="https://hafizahmadhassan.github.io/Data-Science-Blog/2022/06/10/AWS-Instance-Setting.html" />
+<meta property="og:url" content="https://hafizahmadhassan.github.io/Data-Science-Blog/2022/06/10/AWS-Instance-Setting.html" />
 <meta property="og:site_name" content="fastpages" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-06-10T00:00:00-05:00" />
 <script type="application/ld+json">
-{"url":"https://hafizahmadhassan.github.io/Data-Science-Blog/search/","@type":"WebPage","headline":"Search","description":"An easy to use blogging platform with support for Jupyter Notebooks.","@context":"https://schema.org"}</script>
+{"datePublished":"2022-06-10T00:00:00-05:00","url":"https://hafizahmadhassan.github.io/Data-Science-Blog/2022/06/10/AWS-Instance-Setting.html","@type":"BlogPosting","headline":"Aws Instance Setting","dateModified":"2022-06-10T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://hafizahmadhassan.github.io/Data-Science-Blog/2022/06/10/AWS-Instance-Setting.html"},"description":"Documentation of Setting Up EC2 Instance","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/Data-Science-Blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://hafizahmadhassan.github.io/Data-Science-Blog/feed.xml" title="fastpages" /><link rel="shortcut icon" type="image/x-icon" href="/Data-Science-Blog/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -66,18 +68,118 @@ window.onload = wrap_img;
 </header>
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <!-- adapted from https://github.com/pmarsceill/just-the-docs -->
-<script type="text/javascript" src="/Data-Science-Blog/assets/js/search.js"></script>
-<script type="text/javascript" src="/Data-Science-Blog/assets/js/vendor/lunr.min.js"></script>
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
-<div class="search">
-    <div class="search-input-wrap">
-    <input type="text" class="js-search-input search-input input-block form-control" tabindex="0" placeholder="Search fastpages" aria-label="Search fastpages" autocomplete="off">
-    </div>
-    <br>
-    <div class="js-search-results search-results-wrap"></div>
-</div>
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Aws Instance Setting</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-06-10T00:00:00-05:00" itemprop="datePublished">
+        Jun 10, 2022
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      1 min read
+    
+</span></p>
 
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Documentation of Setting Up EC2 Instance</p>
+
+<p><strong>- How to set EC2 virtual environment *(WARNING: Don’t follow course.fastai.ec2 setup instructions)*</strong></p>
+
+<p>1) Create EC2 instance with g4dn.xlarge by selecting options</p>
+
+<p>2) Remember to use ubuntu version 20.4 not 22.0 because of dependency issues</p>
+
+<p>3) Don’t delete your key pair which you have chosed for particular instance in your local machine</p>
+
+<p>4) So your instance is ready</p>
+
+<p>5) Remember selecting at least 100 GB volume while creating instance</p>
+
+<p>6) You have started the amazon server in your terminal by doing <strong>ssh -i &lt;name of pm file&gt; ubuntu @ &lt;public ipv4 dns &gt;</strong></p>
+
+<p>7) Do the following in terminal :</p>
+
+<p>s<strong>udo apt update &amp;&amp; sudo apt -y install git</strong></p>
+
+<p><strong>git clone https://github.com/fastai/fastsetup.git</strong></p>
+
+<p><strong>cd fastsetup</strong></p>
+
+<p><strong>sudo ./ubuntu-initial.sh</strong></p>
+
+<p>8) And then write exit or logout in terminal to disconnect from amazon</p>
+
+<p>9) Then eneter the comman in local terminal</p>
+
+<p><strong>ssh -L localhost:8888:localhost:8888 -i &lt;name of pemfile&gt; ubuntu@&lt;public ipv4 Dns&gt;</strong></p>
+
+<p>10) Make sure of the directory of the pem file path</p>
+
+<p>*(No you are connected to amazon terminal)*</p>
+
+<p>11) Do the following &lt;amazon ec2 terminal&gt;:</p>
+
+<p><strong>cd fastsetup</strong></p>
+
+<p><strong>./setup-conda.sh</strong></p>
+
+<p><strong>source ~/.bashrc</strong></p>
+
+<p>12) Do not enter the following as described in course.fast.ai:</p>
+
+<p><strong>conda install -yq mamba</strong></p>
+
+<p>13) Now setup your nvidia-drivers:</p>
+
+<p><strong>ubuntu-drivers devices</strong></p>
+
+<p>14) You have to look at recommended drivers version and then install it</p>
+
+<p><strong>sudo apt-fast install -y nvidia-driver-&lt;recommended driver version&gt;-server</strong></p>
+
+<p>15) Make sure you install nvidia driver successfully</p>
+
+<p>16) Enter the following commands:</p>
+
+<p><strong>sudo modprobe nvidia</strong></p>
+
+<p><strong>nvidia-smi</strong></p>
+
+<p>17) Now time to install fastai libraries. *REMEMBER TO DO IT WITH pip NOT conda/mamba*</p>
+
+<p><strong>pip –upgrade pip</strong></p>
+
+<p><strong>pip install fastai</strong></p>
+
+<p><strong>pip install -uqq fastbook</strong></p>
+
+<p><strong>pip install graphvis</strong></p>
+
+<p><strong>pip install notebook</strong></p>
+
+<p>18) Enter the following:</p>
+
+<p><strong>cd</strong></p>
+
+<p><strong>git clone https://github.com/fastai/fastbook</strong></p>
+
+<p>19) Run jupyter notebook: jupyter notebook</p>
+
+<p>20) Type <strong>localhost:8888</strong> in your browser.</p>
+
+<p>21) If it is not connected open the new terminal and type following:</p>
+
+<p><strong>ssh -L localhost:8888:localhost:8888 -i &lt;pemfile&gt; ubuntu@&lt;public ipv4 Dns&gt;</strong></p>
+
+<p>*Email us if you are facing issues*</p>
+
+  </div><a class="u-url" href="/Data-Science-Blog/2022/06/10/AWS-Instance-Setting.html" hidden></a>
+</article>
       </div>
     </main><footer class="site-footer h-card">
   <data class="u-url" href="/Data-Science-Blog/"></data>
